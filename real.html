@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillForge Academy | Jobs & Freelancing Learning Platform</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f4f7fb;
+      color:#1e293b;
+      overflow-x:hidden;
+    }
+
+    :root{
+      --primary:#2563eb;
+      --secondary:#0f172a;
+      --accent:#38bdf8;
+      --light:#ffffff;
+      --gray:#64748b;
+      --shadow:0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    /* NAVBAR */
+
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:999;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(10px);
+      box-shadow:0 2px 20px rgba(0,0,0,0.05);
+    }
+
+    nav{
+      width:90%;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:800;
+      color:var(--primary);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      color:#1e293b;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:var(--primary);
+    }
+
+    .menu-btn{
+      display:none;
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:150px 10%;
+      background:
+      linear-gradient(rgba(15,23,42,0.85), rgba(37,99,235,0.8)),
+      url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      color:white;
+    }
+
+    .hero-content h1{
+      font-size:70px;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .hero-content p{
+      font-size:20px;
+      max-width:900px;
+      margin:auto;
+      line-height:1.9;
+      margin-bottom:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 35px;
+      background:var(--accent);
+      color:white;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      background:#0ea5e9;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:48px;
+      margin-bottom:15px;
+      color:#0f172a;
+    }
+
+    .section-title p{
+      color:var(--gray);
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    /* ARTICLES */
+
+    .articles-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:35px;
+    }
+
+    .article-card{
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:0.4s;
+    }
+
+    .article-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .article-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .article-content{
+      padding:35px;
+    }
+
+    .article-content h3{
+      font-size:28px;
+      margin-bottom:18px;
+      color:#0f172a;
+    }
+
+    .article-content p{
+      color:#64748b;
+      line-height:1.9;
+      margin-bottom:20px;
+      font-size:15px;
+    }
+
+    .read-more{
+      color:var(--primary);
+      font-weight:700;
+    }
+
+    /* FEATURES */
+
+    .features{
+      background:white;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .feature-card{
+      background:#f8fafc;
+      padding:40px 30px;
+      border-radius:20px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .feature-card:hover{
+      background:var(--primary);
+      color:white;
+      transform:translateY(-8px);
+    }
+
+    .feature-card h3{
+      margin:20px 0;
+      font-size:24px;
+    }
+
+    .feature-card p{
+      line-height:1.8;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter{
+      background:linear-gradient(135deg,#2563eb,#0ea5e9);
+      color:white;
+      text-align:center;
+      border-radius:30px;
+      padding:70px 40px;
+    }
+
+    .newsletter h2{
+      font-size:42px;
+      margin-bottom:20px;
+    }
+
+    .newsletter p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.9;
+      margin-bottom:30px;
+    }
+
+    .newsletter form{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .newsletter input{
+      width:350px;
+      padding:18px;
+      border:none;
+      border-radius:50px;
+      outline:none;
+      font-size:16px;
+    }
+
+    .newsletter button{
+      border:none;
+      cursor:pointer;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#020617;
+      color:white;
+      text-align:center;
+      padding:40px;
+      margin-top:80px;
+    }
+
+    footer p{
+      opacity:0.8;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .hero-content h1{
+        font-size:48px;
+      }
+
+      .nav-links{
+        position:absolute;
+        top:90px;
+        right:-100%;
+        flex-direction:column;
+        background:white;
+        width:260px;
+        height:100vh;
+        padding:40px;
+        transition:0.4s;
+      }
+
+      .nav-links.active{
+        right:0;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .section-title h2{
+        font-size:36px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo">SkillForge</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#features">Skills</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+      </ul>
+
+      <div class="menu-btn" id="menuBtn">☰</div>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>Learn Freelancing, Jobs & Modern Digital Skills</h1>
+
+      <p>
+        Master Fiverr freelancing, responsive web design, office management,
+        AI tools, online jobs, and high-income digital skills with free professional articles.
+      </p>
+
+      <a href="#articles" class="btn">Start Learning</a>
+
+    </div>
+
+  </section>
+
+  <!-- ARTICLES -->
+
+  <section id="articles">
+
+    <div class="section-title">
+
+      <h2>Latest Learning Articles</h2>
+
+      <p>
+        Read premium educational guides designed for students, freelancers,
+        job seekers, and digital creators.
+      </p>
+
+    </div>
+
+    <div class="articles-grid">
+
+      <!-- ARTICLE 1 -->
+
+      <div class="article-card">
+
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="article-content">
+
+          <h3>Fiverr Freelancing Tips</h3>
+
+          <p>
+            Fiverr is one of the largest freelancing marketplaces in the world where people
+            offer digital services to clients globally. Many beginners join Fiverr without
+            understanding how to create professional gigs or attract buyers. To succeed on Fiverr,
+            the first step is choosing a skill that has high demand such as graphic design,
+            web development, video editing, content writing, SEO, or social media marketing.
+
+            After selecting a skill, you should create a professional Fiverr profile with
+            a high-quality image, strong description, and relevant portfolio samples.
+            Your gig title should include important keywords that buyers search for.
+            For example, instead of writing “I will design websites,” write
+            “I will create responsive modern business websites.”
+
+            Fiverr success also depends heavily on communication. Always reply quickly to buyers,
+            understand project requirements carefully, and deliver work before deadlines.
+            Positive reviews increase your ranking and help you attract more customers.
+
+            Another important Fiverr tip is creating eye-catching thumbnails.
+            Your gig image should look clean, modern, and professional because buyers judge
+            your service visually before clicking.
+
+            Beginners should start with competitive pricing to gain reviews and trust.
+            Once your profile grows, you can increase your prices gradually.
+
+            Consistency is extremely important. Upload multiple gigs, update keywords,
+            and stay active daily. Successful freelancers treat Fiverr like a real business.
+            Over time, Fiverr can become a full-time income source and provide financial freedom.
+          </p>
+
+          <a href="#" class="read-more">Read Full Article →</a>
+
+        </div>
+
+      </div>
+
+      <!-- ARTICLE 2 -->
+
+      <div class="article-card">
+
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="article-content">
+
+          <h3>How To Learn Responsive Design</h3>
+
+          <p>
+            Responsive web design is one of the most important skills for modern frontend developers.
+            A responsive website automatically adjusts its layout according to screen size,
+            making it look great on mobile phones, tablets, and desktops.
+
+            To start learning responsive design, you should first understand HTML and CSS basics.
+            Learn how layouts work using Flexbox and CSS Grid. These technologies help developers
+            create flexible website structures that adapt to different devices.
+
+            Media queries are another important part of responsive design. Media queries allow
+            developers to apply different styles based on screen width. For example,
+            you can change font sizes, menu layouts, and image sizes for mobile users.
+
+            Beginners should practice by recreating existing websites and experimenting with layouts.
+            Building real projects is the fastest way to improve your skills.
+
+            Modern frontend developers also use frameworks like Bootstrap and Tailwind CSS
+            to create responsive websites faster. However, understanding pure CSS is still essential.
+
+            To become professional, focus on spacing, typography, colors, animations,
+            and mobile-friendly navigation systems. A responsive design should not only fit the screen
+            but also provide a smooth user experience.
+
+            You can learn responsive design for free through YouTube tutorials,
+            coding platforms, and documentation websites. With consistent practice,
+            responsive design can help you become a successful frontend developer or freelancer.
+          </p>
+
+          <a href="#" class="read-more">Read Full Article →</a>
+
+        </div>
+
+      </div>
+
+      <!-- ARTICLE 3 -->
+
+      <div class="article-card">
+
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="article-content">
+
+          <h3>What Is Office Management?</h3>
+
+          <p>
+            Office management is the process of organizing, controlling, and managing
+            office operations to improve productivity and efficiency.
+            Every company needs proper office management to ensure smooth communication,
+            workflow, and administration.
+
+            An office manager handles daily tasks such as scheduling meetings,
+            managing records, supervising employees, handling office supplies,
+            and maintaining workplace discipline.
+
+            Good office management skills include communication, leadership,
+            problem-solving, time management, and teamwork. These skills are valuable
+            for both physical offices and remote businesses.
+
+            Modern office management also involves using digital tools such as Microsoft Office,
+            Google Workspace, Zoom, project management software, and cloud storage systems.
+
+            People who learn office management can work in schools, hospitals,
+            software companies, government organizations, and multinational corporations.
+
+            Office management improves business efficiency because it creates clear systems
+            and organized workflows. A well-managed office reduces confusion,
+            saves time, and increases employee productivity.
+
+            Students interested in administration careers should develop computer skills,
+            communication abilities, and organizational techniques. Professional certifications
+            can also improve job opportunities.
+
+            Today, office management is becoming more technology-driven,
+            meaning digital communication and software skills are increasingly important.
+          </p>
+
+          <a href="#" class="read-more">Read Full Article →</a>
+
+        </div>
+
+      </div>
+
+      <!-- ARTICLE 4 -->
+
+      <div class="article-card">
+
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="article-content">
+
+          <h3>Best Free AI Tools</h3>
+
+          <p>
+            Artificial Intelligence tools are transforming how people work,
+            learn, and create content online. Many free AI tools help freelancers,
+            students, and businesses improve productivity and save time.
+
+            ChatGPT is one of the most popular AI tools for writing, coding,
+            learning, brainstorming, and problem-solving. Designers use Canva AI
+            for creating social media posts, thumbnails, and presentations quickly.
+
+            Developers use GitHub Copilot and AI coding assistants to speed up programming tasks.
+            Writers use Grammarly AI for grammar checking and content improvements.
+
+            AI image generators allow creators to produce unique graphics and artwork.
+            Video creators also use AI editing software to generate subtitles,
+            voiceovers, and automatic editing effects.
+
+            Students benefit from AI tools by generating study notes,
+            summaries, and explanations for difficult topics.
+            Businesses use AI chatbots for customer support and marketing automation.
+
+            Although AI tools are powerful, users should still develop real skills
+            instead of depending completely on automation. AI works best when combined
+            with human creativity and knowledge.
+
+            Learning AI tools can improve freelancing opportunities,
+            increase productivity, and help professionals stay competitive in the digital world.
+          </p>
+
+          <a href="#" class="read-more">Read Full Article →</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="features" id="features">
+
+    <div class="section-title">
+
+      <h2>Skills You Will Learn</h2>
+
+      <p>
+        Build powerful digital skills to grow your career online.
+      </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <h3>Frontend Development</h3>
+        <p>Learn HTML, CSS, JavaScript and modern responsive web design.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Freelancing</h3>
+        <p>Understand Fiverr, Upwork, client communication and project management.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>AI Productivity</h3>
+        <p>Use free AI tools for content writing, coding, design and automation.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Office Skills</h3>
+        <p>Master office management, communication and business productivity tools.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- NEWSLETTER -->
+
+  <section id="newsletter">
+
+    <div class="newsletter">
+
+      <h2>Join Our Free Learning Newsletter</h2>
+
+      <p>
+        Get free freelancing guides, web development tutorials,
+        AI tool updates, and online earning tips directly in your inbox.
+      </p>
+
+      <form id="newsletterForm">
+
+        <input type="email" placeholder="Enter Your Email" required>
+
+        <button class="btn">Subscribe Now</button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 SkillForge Academy — Learn Skills & Build Your Future
+    </p>
+
+  </footer>
+
+  <script>
+
+    // MOBILE MENU
+
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // NEWSLETTER FORM
+
+    const form = document.getElementById('newsletterForm');
+
+    form.addEventListener('submit', function(e){
+
+      e.preventDefault();
+
+      alert('Thank you for subscribing! ✔️');
+
+      form.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>
